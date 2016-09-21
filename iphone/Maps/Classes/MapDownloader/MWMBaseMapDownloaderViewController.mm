@@ -154,6 +154,14 @@ using namespace mwm;
   }
 }
 
+- (void)backTap
+{
+  if (self.dataSource.mode == mwm::DownloaderMode::Downloaded)
+    [self.navigationController popToRootViewControllerAnimated:YES];
+  else
+    [super backTap];
+}
+
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
   [self.cellHeightCache removeAllObjects];
